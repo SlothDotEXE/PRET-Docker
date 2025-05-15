@@ -24,7 +24,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/RUB-NDS/PRET.git /app
 
 # Install Python dependencies
-RUN pip install --no-cache-dir colorama pysnmp
+RUN pip install --no-cache-dir colorama pysnmp requests
 
 # Set default command
 ENTRYPOINT ["python", "pret.py"]

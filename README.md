@@ -55,13 +55,22 @@ Replace `-h` with your desired PRET arguments.
 ### Targeting a Network Printer
 
 ```bash
-docker run -it --rm pret-docker 192.168.1.100
+docker run -it --rm pret-docker <target> <language>
+docker run -it --rm pret-docker 192.168.1.100 ps    #Ex Postscript Printer
+docker run -it --rm pret-docker 192.168.1.100 pjl   #Ex PJL Printer 
+docker run -it --rm pret-docker 192.168.1.100 pcl   #Ex PCL Printer
 ```
 
 ### Targeting a USB Printer (Linux)
 
 ```bash
-docker run -it --rm --device=/dev/usb/lp0 pret-docker /dev/usb/lp0
+docker run -it --rm --device=/dev/usb/lp0 pret-docker /dev/usb/lp0 pjl #Ex PJL Printer
+```
+
+### Listing Options and Help
+
+```bash
+docker run -it --rm pret-docker -h
 ```
 
 ### Saving Session Logs
