@@ -1,77 +1,93 @@
-🖨️ PRET-Docker
+# 🖨️ PRET-Docker
 
-Dockerized PRET (Printer Exploitation Toolkit)
+**Dockerized PRET (Printer Exploitation Toolkit)**
 
-This repository provides a Dockerized version of PRET, enabling users to exploit and test printer security with ease. By containerizing PRET, you can run it without worrying about system dependencies or Python 2 compatibility issues.
+This repository provides a Dockerized version of [PRET](https://github.com/RUB-NDS/PRET), enabling users to exploit and test printer security with ease. By containerizing PRET, you can run it without worrying about system dependencies or Python 2 compatibility issues.
 
-📦 Features
+---
 
-Runs PRET in a lightweight Docker container.
+## 📦 Features
 
-Ensures compatibility with Python 2.7.
+- Runs PRET in a lightweight Docker container.
+- Ensures compatibility with Python 2.7.
+- Includes necessary dependencies: `colorama`, `pysnmp`, `libusb`, `imagemagick`, and `ghostscript`.
+- Optimized for size and efficiency.
+- Supports Linux, macOS, and Windows hosts.
 
-Includes necessary dependencies: colorama, pysnmp, libusb, imagemagick, and ghostscript.
+---
 
-Optimized for size and efficiency.
+## 🚀 Getting Started
 
-Supports Linux, macOS, and Windows hosts.
+### Prerequisites
 
-🚀 Getting Started
+- [Docker](https://www.docker.com/get-started) installed on your system.
 
-Prerequisites
-
-Docker installed on your system.
-
-Build the Docker Image
+### Build the Docker Image
 
 Clone the repository and build the Docker image:
 
+```bash
 git clone https://github.com/SlothDotEXE/PRET-Docker.git
 cd PRET-Docker
 docker build -t pret-docker .
+```
 
-Run PRET
+### Run PRET
 
 To run PRET with default settings:
 
+```bash
 docker run -it --rm pret-docker
+```
 
 To pass specific arguments to PRET:
 
+```bash
 docker run -it --rm pret-docker -h
+```
 
-Replace -h with your desired PRET arguments.
+Replace `-h` with your desired PRET arguments.
 
-🛠️ Usage Examples
+---
 
-Targeting a Network Printer
+## 🛠️ Usage Examples
 
+### Targeting a Network Printer
+
+```bash
 docker run -it --rm pret-docker 192.168.1.100
+```
 
-Targeting a USB Printer (Linux)
+### Targeting a USB Printer (Linux)
 
+```bash
 docker run -it --rm --device=/dev/usb/lp0 pret-docker /dev/usb/lp0
+```
 
-Saving Session Logs
+### Saving Session Logs
 
+```bash
 docker run -it --rm -v $(pwd)/logs:/app/logs pret-docker 192.168.1.100
+```
 
-This command mounts a local logs directory to the container's /app/logs directory, allowing you to save session logs persistently.
+This command mounts a local `logs` directory to the container's `/app/logs` directory, allowing you to save session logs persistently.
 
-⚙️ Configuration
+---
 
-Base Image: python:2.7-slim
+## ⚙️ Configuration
 
-Installed Packages:
+- **Base Image**: `python:2.7-slim`
+- **Installed Packages**:
+  - System: `git`, `libusb-1.0-0`, `libusb-1.0-0-dev`, `imagemagick`, `ghostscript`
+  - Python: `colorama`, `pysnmp`
 
-System: git, libusb-1.0-0, libusb-1.0-0-dev, imagemagick, ghostscript
+---
 
-Python: colorama, pysnmp
+## 📁 .dockerignore
 
-📁 .dockerignore
+To optimize the Docker build context, the following files and directories are excluded via `.dockerignore`:
 
-To optimize the Docker build context, the following files and directories are excluded via .dockerignore:
-
+```dockerignore
 __pycache__/
 *.pyc
 *.pyo
@@ -86,12 +102,10 @@ build/
 .gitignore
 Dockerfile
 README.md
+```
 
-📄 License
+---
 
-This project is licensed under the MIT License.
+## 🤝 Acknowledgements
 
-🤝 Acknowledgements
-
-RUB-NDS/PRET for the original Printer Exploitation Toolkit.
-
+- [RUB-NDS/PRET](https://github.com/RUB-NDS/PRET) for the original Printer Exploitation Toolkit.
