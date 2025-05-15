@@ -1,2 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.egg-info/
+*.eggs/
+dist/
+build/
+.git/
+.gitignore
+Dockerfile
 README.md
 LICENSE
