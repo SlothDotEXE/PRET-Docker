@@ -88,7 +88,7 @@ This command mounts a local `logs` directory to the container's `/app/logs` dire
 - **Base Image**: `python:2.7-slim`
 - **Installed Packages**:
   - System: `git`, `libusb-1.0-0`, `libusb-1.0-0-dev`, `imagemagick`, `ghostscript`
-  - Python: `colorama`, `pysnmp`
+  - Python: `colorama`, `pysnmp`, `requests`
 
 ---
 
